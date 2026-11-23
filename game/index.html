@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emberclash — a duel of four elements</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand"><span class="brand-mark">▲</span> EMBERCLASH</div>
+    <div id="turn-banner" class="turn-banner"></div>
+    <div id="score-line" class="score-line"></div>
+  </header>
+
+  <main id="table">
+    <section id="enemy-zone" class="zone">
+      <div class="hero-row">
+        <div id="enemy-hero" class="hero enemy-hero">
+          <div class="hero-name">ASH WARDEN</div>
+          <div class="hero-sub">Rival Duelist · AI</div>
+          <div class="hp-bar"><div id="enemy-hp-fill" class="hp-fill"></div><span id="enemy-hp-text" class="hp-text"></span></div>
+          <div id="enemy-mana" class="mana-line"></div>
+        </div>
+        <div id="enemy-hand" class="mini-hand" title="Opponent hand"></div>
+      </div>
+      <div id="enemy-board" class="board"></div>
+    </section>
+
+    <section id="mid-row" class="mid-row">
+      <div id="log" class="log"></div>
+      <div class="mid-controls">
+        <div id="surge-badge" class="surge-badge hidden">ELEMENTAL SURGE +1 ATK</div>
+        <button id="end-turn" class="btn end-turn" type="button">END TURN ⏎</button>
+        <button id="restart" class="btn ghost" type="button">RESTART (R)</button>
+      </div>
+    </section>
+
+    <section id="player-zone" class="zone">
+      <div id="player-board" class="board"></div>
+      <div class="hero-row">
+        <div id="player-hero" class="hero player-hero">
+          <div class="hero-name">YOU · EMBERKEEPER</div>
+          <div class="hero-sub">Duelist</div>
+          <div class="hp-bar"><div id="player-hp-fill" class="hp-fill"></div><span id="player-hp-text" class="hp-text"></span></div>
+          <div id="player-mana" class="mana-line"></div>
+        </div>
+        <div id="player-hand" class="hand"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="title-screen" class="overlay">
+    <div class="title-card">
+      <div class="title-glyphs"><span class="g-ember">▲</span><span class="g-tide">●</span><span class="g-leaf">◆</span><span class="g-stone">■</span></div>
+      <h1>EMBERCLASH</h1>
+      <p class="tagline">A duel of four elements. Outwit the Ash Warden, card by card.</p>
+      <div class="rules-box">
+        <div><b>Goal</b> — reduce the Ash Warden from 30 HP to 0 before yours falls.</div>
+        <div><b>Play</b> — click a card to play it (costs mana ◆), click your creature, then an enemy to attack.</div>
+        <div><b>Surge</b> — play two cards of the same element in one turn: your creatures gain +1 attack.</div>
+        <div><b>Guard</b> — Stone creatures with Guard must be attacked before the hero.</div>
+        <div><b>Keys</b> — 1–7 play a hand card · Space ends turn · R restarts · Esc cancels.</div>
+      </div>
+      <button id="start-btn" class="btn big" type="button">▶ &nbsp;START DUEL</button>
+      <p class="title-foot">30 HP each · 24-card decks · four elements: Ember ▲ · Tide ● · Leaf ◆ · Stone ■</p>
+    </div>
+  </div>
+
+  <div id="end-screen" class="overlay hidden">
+    <div class="title-card end-card">
+      <div id="end-glyph" class="end-glyph">▲</div>
+      <h1 id="end-title">VICTORY</h1>
+      <p id="end-sub" class="tagline"></p>
+      <div id="end-stats" class="end-stats"></div>
+      <button id="again-btn" class="btn big" type="button">↻ &nbsp;DUEL AGAIN</button>
+      <p class="title-foot">Press R or click Duel Again to play another round.</p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
